@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<title>Fernwärme Briefing</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4f6f5;
+  --surface:#ffffff;
+  --ink:#141c1a;
+  --ink-2:#4f5d59;
+  --ink-3:#77857f;
+  --rule:#d6ddd9;
+  --rule-soft:#e6ebe8;
+  --accent:#0d5c56;
+  --accent-soft:#e2efec;
+  --heat:#b0431c;
+  --heat-soft:#f6e8e1;
+  --maxw:74ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101614;
+    --surface:#161e1c;
+    --ink:#e8efec;
+    --ink-2:#a3b1ac;
+    --ink-3:#7d8b86;
+    --rule:#2a3633;
+    --rule-soft:#212b29;
+    --accent:#5ec4b6;
+    --accent-soft:#17302d;
+    --heat:#e0855c;
+    --heat-soft:#2e1f18;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101614;
+  --surface:#161e1c;
+  --ink:#e8efec;
+  --ink-2:#a3b1ac;
+  --ink-3:#7d8b86;
+  --rule:#2a3633;
+  --rule-soft:#212b29;
+  --accent:#5ec4b6;
+  --accent-soft:#17302d;
+  --heat:#e0855c;
+  --heat-soft:#2e1f18;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.6;
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px 80px}
+
+/* Masthead */
+.mast{
+  border-bottom:2px solid var(--ink);
+  padding:36px 0 14px;
+  margin-bottom:28px;
+}
+.mast-top{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:8px 20px;
+}
+h1{
+  font-family:"Archivo Narrow",Arial Narrow,Arial,sans-serif;
+  font-weight:700;
+  font-size:clamp(34px,6vw,52px);
+  letter-spacing:-.015em;
+  line-height:1;
+  margin:0;
+  text-wrap:balance;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.stamp{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+}
+.mast-sub{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 18px;
+  margin-top:14px;
+}
+.mast-sub span{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;
+  letter-spacing:.06em;
+  color:var(--ink-3);
+}
+
+/* Lede */
+.lede{
+  font-size:19px;
+  line-height:1.55;
+  margin:0 0 34px;
+  max-width:var(--maxw);
+}
+.lede strong{font-weight:600}
+
+/* Figures strip */
+.figures{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;
+  background:var(--rule);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  margin:0 0 44px;
+}
+.fig{background:var(--ground);padding:16px 18px 18px}
+.fig-num{
+  font-family:"Archivo Narrow",Arial Narrow,sans-serif;
+  font-size:30px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums;
+}
+.fig-num.warm{color:var(--heat)}
+.fig-lab{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  line-height:1.4;
+  letter-spacing:.04em;
+  color:var(--ink-2);
+  margin-top:8px;
+}
+
+/* Sections */
+section{margin:0 0 46px}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+  padding-bottom:7px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:26px;
+}
+h2{
+  font-family:"Archivo Narrow",Arial Narrow,sans-serif;
+  font-size:23px;
+  font-weight:600;
+  line-height:1.2;
+  letter-spacing:-.005em;
+  margin:0 0 4px;
+  text-wrap:balance;
+  max-width:var(--maxw);
+}
+.item{margin:0 0 34px;max-width:var(--maxw)}
+.item:last-child{margin-bottom:0}
+.dateline{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;
+  letter-spacing:.05em;
+  color:var(--ink-3);
+  margin:0 0 10px;
+}
+.item p{margin:0 0 10px}
+.item p:last-of-type{margin-bottom:12px}
+
+/* Key points list */
+ul.points{margin:0 0 12px;padding:0;list-style:none}
+ul.points li{
+  position:relative;
+  padding-left:20px;
+  margin-bottom:8px;
+}
+ul.points li::before{
+  content:"";
+  position:absolute;
+  left:2px;
+  top:.66em;
+  width:7px;
+  height:1px;
+  background:var(--heat);
+}
+ul.points li strong{font-weight:600}
+
+/* Sources */
+.src{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  align-items:center;
+  padding-top:4px;
+}
+.src-lab{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  margin-right:2px;
+}
+.src a{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;
+  color:var(--ink-2);
+  text-decoration:none;
+  border:1px solid var(--rule);
+  border-radius:2px;
+  padding:2px 7px;
+  transition:border-color .15s,color .15s,background .15s;
+}
+.src a:hover,.src a:focus-visible{
+  color:var(--accent);
+  border-color:var(--accent);
+  background:var(--accent-soft);
+}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Termine table */
+.termine{width:100%;border-collapse:collapse;max-width:var(--maxw);font-size:16px}
+.termine td{padding:11px 0;border-bottom:1px solid var(--rule-soft);vertical-align:baseline}
+.termine tr:last-child td{border-bottom:none}
+.termine td.d{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12.5px;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+  padding-right:20px;
+  color:var(--heat);
+  width:1%;
+}
+.scroller{overflow-x:auto}
+
+/* Footer */
+.foot{
+  border-top:1px solid var(--rule);
+  margin-top:56px;
+  padding-top:18px;
+  max-width:var(--maxw);
+}
+.foot p{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;
+  line-height:1.7;
+  color:var(--ink-3);
+  margin:0 0 6px;
+}
+.note{
+  background:var(--heat-soft);
+  border-left:2px solid var(--heat);
+  padding:12px 16px;
+  margin:0 0 40px;
+  max-width:var(--maxw);
+  font-size:15.5px;
+  line-height:1.55;
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:0 18px 60px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mast-top">
+      <h1>Fernwärme Briefing</h1>
+      <div class="stamp">Stand 4. September 2026</div>
+    </div>
+    <div class="mast-sub">
+      <span>Energiewirtschaft Deutschland und Europa</span>
+      <span>Aktualisierung werktags 07:00 Uhr</span>
+      <span>für Paul Beckr</span>
+    </div>
+  </header>
+
+  <p class="lede">Die Branche arbeitet sich am <strong>Wärmenetzpaket</strong> vom 26. August ab. Neu in dieser Woche: erste belastbare Analysen dazu, was die Eckpunkte operativ bedeuten, und die Absicht des Wirtschaftsministeriums, die bisherigen Fernwärmeverordnungen in ein eigenständiges <strong>Wärmenetzgesetz</strong> zu überführen. Am 2. September hat das Kabinett zudem die WindSeeG-Novelle und die Fortführung des Netzkostenzuschusses bis 2029 beschlossen. Der Terminkalender bleibt eng: Gebotstermin der ersten Kapazitätsauktion am 8. September, Urteil des OLG Hamm zu den Preisgleitklauseln am 12. Oktober.</p>
+
+  <div class="figures">
+    <div class="fig">
+      <div class="fig-num">15,7</div>
+      <div class="fig-lab">Cent je kWh<br>Durchschnittspreis 1.1.2026</div>
+    </div>
+    <div class="fig">
+      <div class="fig-num warm">19,7 %</div>
+      <div class="fig-lab">Erneuerbaren-Anteil<br>Vorjahr 20,1 %, Ziel 50 % bis 2030</div>
+    </div>
+    <div class="fig">
+      <div class="fig-num">132</div>
+      <div class="fig-lab">TWh Fernwärme 2025<br>plus 2 % gegenüber Vorjahr</div>
+    </div>
+    <div class="fig">
+      <div class="fig-num">10,5 %</div>
+      <div class="fig-lab">Anteil am Wärme-<br>Endenergieverbrauch, unverändert</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="eyebrow">Fernwärme Deutschland · Politik und Regulierung</div>
+
+    <article class="item">
+      <h2>Wärmenetzpaket im Kabinett beschlossen</h2>
+      <p class="dateline">26. August 2026 · Bundesregierung</p>
+      <p>Die Bundesregierung hat Eckpunkte für ein Wärmenetzpaket verabschiedet. Vier Kernpunkte tragen das Vorhaben:</p>
+      <ul class="points">
+        <li><strong>Verpflichtende Preistransparenzplattform.</strong> Alle Wärmeversorger müssen Preise, Tarifstrukturen und Parameter bei einer Bundesbehörde veröffentlichen und jährlich aktualisieren. Die bisher freiwillige Branchenplattform wird zur Pflicht.</li>
+        <li><strong>Verschärfte Preisaufsicht</strong> durch eine Bundesbehörde, begründet mit der fehlenden Wechselmöglichkeit der Kunden.</li>
+        <li><strong>50-Cent-Regel.</strong> Vermieter dürfen bei umfassender Heizungsumstellung bis zu 0,50 Euro je Quadratmeter und Monat umlegen. Die bisher nur für Wärmepumpen geltende Regel wird auf Fernwärmeanschlüsse ausgeweitet.</li>
+        <li><strong>BEW-Förderung gesetzlich verankert.</strong> Die Bundesförderung effiziente Wärmenetze bekommt erstmals eine statutarische Grundlage, was die Planungssicherheit erhöht.</li>
+      </ul>
+      <p>Hinzu kommen transparentere Preisänderungsklauseln, ein Recht auf Leistungsanpassung nach Energieberatung, ein Sonderkündigungsrecht bei unzureichender Dekarbonisierung des Netzes und eine neue Schlichtungsstelle. Wichtig für die Einordnung: Es handelt sich um Eckpunkte, noch nicht um ein Gesetz. Referentenentwurf, Verbändeanhörung und parlamentarisches Verfahren stehen aus. Rund 15 Prozent der Haushalte beziehen derzeit Nah- oder Fernwärme.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.bundesregierung.de/breg-de/aktuelles/eckpunkte-waermenetz-2450162">Bundesregierung</a>
+        <a href="https://www.c-ober.de/blog/waermenetzpaket-beschlossen-preisaufsicht-50-cent-regel/">c-ober</a>
+        <a href="https://www.stadt-und-werk.de/k21-meldungen/eckpunkte-fuer-ein-waermenetzpaket-beschlossen/">stadt+werk</a>
+        <a href="https://mieterbund.de/aktuelles/meldungen/bundeskabinett-verabschiedet-eckpunkte-zum-waermenetzpaket/">Mieterbund</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>Was die Eckpunkte operativ bedeuten: Kostenrechnung wird zur Pflichtaufgabe</h2>
+      <p class="dateline">2. September 2026 · Analyse PwC</p>
+      <p>Der neuralgische Punkt für Versorger ist nicht die Preisaufsicht selbst, sondern ihre Voraussetzung. Gefordert wird eine belastbare, prüffeste und funktional aufgeschlüsselte Kosten- und Erlösrechnung. Sie bedient gleich vier neue Pflichten zugleich: die Teilnahme an der Preistransparenzplattform, die nachgelagerte Angemessenheitsprüfung der Preise, überarbeitete Preisänderungsklauseln und die optionale Vorabprüfung von Investitionen.</p>
+      <p>Wirtschaftlich verschiebt sich damit die Refinanzierungslogik. Der Wechsel von brennstoffabhängiger zu kapitalintensiver erneuerbarer Erzeugung verlangt neue Wege, insbesondere einseitige Preisanpassungsrechte für Dekarbonisierungsinvestitionen.</p>
+      <div class="src">
+        <span class="src-lab">Quelle</span>
+        <a href="https://blogs.pwc.de/de/auf-ein-watt/article/256614/waermenetzpaket-2026-vom-eckpunktepapier-zur-investitionsentscheidung-was-jetzt-auf-waermeversorger-zukommt/">PwC, Auf ein Watt</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>Aus der Verordnung soll ein Wärmenetzgesetz werden</h2>
+      <p class="dateline">Stand 26. August 2026 · Energiegesetze-Ticker</p>
+      <p>Das Wirtschaftsministerium plant, die bisherigen Fernwärmeverordnungen in ein eigenständiges Wärmenetzgesetz zu überführen und dabei auch das Kostenneutralitätsgebot im BGB anzupassen. Das ist mehr als die bislang diskutierte Novelle der AVBFernwärmeV, deren Referentenentwurf seit 2024 vorliegt und deren Verfahren sich zieht. Ein konkreter Zeitplan für den Gesetzentwurf steht nicht fest. Die AGFW fordert Rechtssicherheit, weil Versorger ohne belastbaren Rahmen Projekte zurückstellen.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.zfk.de/politik/deutschland/energiegesetze-ticker-deutschland-reiche">zfk Gesetze-Ticker</a>
+        <a href="https://www.agfw.de/energiewirtschaft-recht-politik/recht/aktuelles-aus-dem-bereich/newsdetail/avbfernwaermev-novellieren-versorger-benoetigen-rechtssicherheit-fuer-die-waermewende">AGFW</a>
+        <a href="https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Downloads/Gesetz/20240807-avbfernwaermev.pdf?__blob=publicationFile&amp;v=4">BMWE Entwurf</a>
+        <a href="https://www.roedl.com/insights/verzoegerungen-bei-der-gesetzgebung-bewegung-in-der-rechtsprechung-ein-rueckblick-auf-das-waermerecht-im-jahr-2025-und-ein-ausblick-auf-2026/">Rödl</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>BEW-Förderung: 2,7 statt 3,5 Milliarden Euro, danach nichts Verbindliches</h2>
+      <p class="dateline">25. März 2026 · Klimaschutzprogramm 2026</p>
+      <p>Das Bundesumweltministerium wollte die jährliche Bundesförderung effiziente Wärmenetze auf 3,5 Milliarden Euro anheben. Durchgesetzt hat sich das nicht: Für 2030 sind 2,7 Milliarden Euro vorgesehen, für die Jahre danach gibt es keine verbindlichen Zusagen mehr. Der VKU kritisiert, dass frühere Fassungen konstante Mittel bis 2040 vorsahen und die Planungssicherheit damit verloren geht. Die im Wärmenetzpaket angekündigte gesetzliche Verankerung der BEW ist vor diesem Hintergrund zu lesen.</p>
+      <div class="src">
+        <span class="src-lab">Quelle</span>
+        <a href="https://www.zfk.de/politik/deutschland/klimaschutzprogramm-2026-waermepumpe-waermenetz-windenergie">zfk zum Klimaschutzprogramm</a>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Fernwärme · Recht und Verfahren</div>
+
+    <article class="item">
+      <h2>Musterfeststellungsklage vzbv gegen E.ON vor dem OLG Hamm</h2>
+      <p class="dateline">Verhandlung 24. August 2026 · Urteil angekündigt für 12. Oktober 2026</p>
+      <p>Streitpunkt ist die Preisgleitklausel von E.ON Energy Solutions, die den Fernwärmepreis zu über 60 Prozent an Gaspreis-Indizes koppelt. Der vzbv sieht darin einen Verstoß gegen Paragraf 24 AVBFernwärmeV, der eine angemessene Gewichtung von Kostenentwicklung und Marktlage verlangt.</p>
+      <p>In einem betroffenen Netz stieg der Arbeitspreis von 6,18 auf 23,24 Cent je Kilowattstunde, für einzelne Haushalte rund 3.500 Euro Mehrkosten in zwei Jahren. Ein Urteil zugunsten des vzbv würde die Klauselpraxis vieler Versorger unter Anpassungs- und Rückzahlungsdruck setzen.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.drweb.de/fernwaerme-eon-preisklausel-olg-hamm/">Verfahrensbericht</a>
+        <a href="https://www.marler-zeitung.de/marl/fernwaerme-marl-olg-hamm-kritisiert-eon-preisklauseln-heizkosten-w1239484-9001367343">Marler Zeitung</a>
+        <a href="https://www.c-ober.de/blog/energie-news-rueckblick-kw35-2026/">Terminübersicht</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>Bundeskartellamt setzt auf Missbrauchsaufsicht statt Preisdeckel</h2>
+      <p class="dateline">Sektorverfahren seit November 2023 · Zwischenstand März 2025</p>
+      <p>Das Verfahren zu Preisanpassungsklauseln dauert an. Die Behörde teilte mit, der Verdacht auf rechtswidrige Klauseln habe sich bei mehreren Netzen erhärtet, insbesondere durch ein zu schwach gewichtetes Marktelement. Eine gesetzliche Preisobergrenze lehnt das Amt weiterhin ab und setzt stattdessen auf Missbrauchsaufsicht und Transparenz.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.bundeskartellamt.de/SharedDocs/Meldung/DE/Pressemitteilungen/2025/03_20_2025_Fernw%C3%A4rme.html">Bundeskartellamt</a>
+        <a href="https://www.zfk.de/politik/deutschland/kartellamt-andreas-mundt-fernwaerme-preisaufsicht">zfk</a>
+        <a href="https://www.vzbv.de/meldungen/fernwaermemarkt-braucht-mehr-verbraucherschutz-bundeskartellamt-erkenntnisse-bestaetigen">vzbv</a>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Fernwärme · Markt und Projekte</div>
+
+    <article class="item">
+      <h2>Preise leicht rückläufig, Spannweite zwischen den Netzen bleibt extrem</h2>
+      <p class="dateline">6. März 2026 · Wärmepreis-Transparenzplattform, Auswertung vzbv</p>
+      <p>Der mengengewichtete Durchschnittspreis sank von 15,8 Cent je Kilowattstunde im Januar 2025 auf 15,7 Cent zum 1. Januar 2026. Bei Mehrfamilienhäusern ging der Preis von rund 18 auf 17 Cent zurück, bei Einfamilienhäusern blieb er nahezu unverändert bei rund 17 Cent.</p>
+      <p>Die Spanne zwischen den Netzen reicht von 8 Cent in Mücheln in Sachsen-Anhalt bis 36 Cent in Seelow in Brandenburg. Erfasst sind inzwischen 695 Netze gegenüber 608 im Januar 2025. Der vzbv erwartet für die kommenden Jahre keine Entlastung, weil Investitionen in erneuerbare Erzeugung auf die Preise für Neuverträge durchschlagen.</p>
+      <div class="src">
+        <span class="src-lab">Quelle</span>
+        <a href="https://www.zfk.de/energie/waermewende/fernwaermepreise-2026-klarer-trend-erkennbar">zfk Preisauswertung 2026</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>Dekarbonisierung stagniert, Grünanteil sinkt sogar</h2>
+      <p class="dateline">2. Juni 2026 · BDEW Fortschrittsmonitor Energiewende 2026</p>
+      <p>Die Fernwärmeerzeugung lag 2025 bei 132 TWh, ein Plus von 2 Prozent. Der Anteil am Wärme-Endenergieverbrauch blieb unverändert bei 10,5 Prozent. Der Anteil erneuerbarer Energien in der Fernwärme fiel von 20,1 Prozent im Jahr 2024 auf 19,7 Prozent im Jahr 2025, während das Wärmeplanungsgesetz 50 Prozent bis 2030 vorschreibt. Als Haupthindernisse nennt der Monitor Finanzierung, die Bindung qualifizierten Fachpersonals und einen fragmentierten Regulierungsrahmen.</p>
+      <div class="src">
+        <span class="src-lab">Quelle</span>
+        <a href="https://www.zfk.de/energie/waerme/fernwaerme-waermewende-bdew-fortschrittsmonitor-energiewende-2026">zfk zum Fortschrittsmonitor</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>Kommunale Wärmeplanung: Frist für Großstädte verstrichen</h2>
+      <p class="dateline">Stichtag 30. Juni 2026 · Erhebungsstand Ende April 2026</p>
+      <p>Ende April hatten 36 von 80 Großstädten noch keinen Plan vorgelegt. 14 Städte hatten beschlossen, darunter Leipzig, Potsdam und Chemnitz, 15 weitere sahen sich in der Frist. Mehrere überschreiten deutlich, Mülheim, Hamm und Paderborn im Juli, Bochum erst im Oktober.</p>
+      <p>Als Hürden nennen die Städte übereinstimmend fehlende gebäudescharfe Verbrauchsdaten, regulatorische Unsicherheit durch das damals noch offene Gebäudemodernisierungsgesetz, ungeklärte Finanzierungs- und Sozialverträglichkeitsfragen sowie drohende Engpässe im Tiefbau beim gleichzeitigen Netzausbau.</p>
+      <div class="src">
+        <span class="src-lab">Quelle</span>
+        <a href="https://www.zfk.de/energie/waermewende/kommunale-waermeplanung-frist-grossstaedte-juni-2026">zfk zum Fristende</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>Erzeugungsseite: Großwärmepumpen, Tiefengeothermie, neue Rolle der KWK</h2>
+      <p class="dateline">laufende Projekte · Deutschland und Österreich</p>
+      <p>Der Ausbau erneuerbarer Erzeugung in Netzen läuft über Großwärmepumpen, Tiefengeothermie und Abwärme, mit einer wachsenden Projektpipeline in ganz Europa. Wien Energie will 2026 die erste Geothermieanlage der Stadt in Betrieb nehmen. Die Rolle der KWK verschiebt sich in einem zunehmend elektrifizierten Wärmesystem hin zu Flexibilität und Residuallastdeckung.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.zfk.de/energie/waermewende/technologien-fuer-gruene-fernwaerme-grosswaermepumpen">zfk Großwärmepumpen</a>
+        <a href="https://www.zfk.de/energie/waerme/kwk-fernwaerme-waermepumpe-strommarkt-bet-dena-eworld">zfk KWK</a>
+        <a href="https://www.iwr.de/news/mega-waermepumpen-fuer-industrie-und-fernwaerme-neue-projekte-in-ganz-europa-zeigen-potenzial-news39556">IWR</a>
+        <a href="https://infothek.bmimi.gv.at/wien-energie-will-2026-erste-geothermie-anlage-in-betrieb-nehmen/">Wien Energie</a>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Europa</div>
+
+    <article class="item">
+      <h2>EU-Strategie für Wärme und Kälte als eigener Politikstrang</h2>
+      <p class="dateline">laufend · Europäische Kommission, Euroheat and Power</p>
+      <p>Die Heating and Cooling Decarbonisation Strategy läuft flankiert vom Electrification Action Plan. Euroheat and Power drängt auf verlässliche Investitionsrahmen, Finanzierungsinstrumente und Fachkräfte für den Netzausbau. Eine neue Studie der Kommission untersucht die Investitionslage im Sektor Fernwärme und Fernkälte.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.euroheat.org/news/eu-heating-and-cooling-decarbonisation-strategy-announced-for-secure-and-affordable-energy-1">EU-Strategie</a>
+        <a href="https://www.euroheat.org/news/new-european-commission-study-examines-district-heating-and-cooling-energy-sector-investment-1">Kommissionsstudie</a>
+        <a href="https://energy-cities.eu/presse/europes-heating-and-cooling-dilemma-can-district-energy-deliver/">Energy Cities</a>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Allgemeine Energiewirtschaft</div>
+
+    <article class="item">
+      <h2>Kapazitätsmarkt startet, erste Auktion mit 4.500 Megawatt</h2>
+      <p class="dateline">Ausschreibung eröffnet 21. Juli 2026 · Gebotstermin 8. September 2026</p>
+      <p>Die Bundesnetzagentur hat die erste Ausschreibung für Langzeitkapazitäten nach dem StromVKG gestartet. Ausgeschrieben sind 4.500 Megawatt bei einem Höchstpreis von 244.000 Euro je Megawatt und Jahr, die Verpflichtungsdauer beträgt 15 Jahre.</p>
+      <p>Ein regionaler Faktor bevorzugt Standorte im Norden, Anlagen im Süden erhalten einen Bonus von 16.000 Euro je Megawatt und Jahr, sobald ein Drittel des Volumens im Norden vergeben ist. Für Stadtwerke mit KWK-Anlagen ist die Ausschreibung ein direkter Bezugspunkt zur Fernwärmeerzeugung.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2026/20260721_StromVKG.html">Bundesnetzagentur</a>
+        <a href="https://www.iwr.de/news/kapazitaetsmarkt-startet-erste-bnetza-ausschreibung-setzt-auf-gaskraftwerke-news39889">IWR</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>ETS 2 verschoben, nationaler CO2-Korridor gilt 2027 weiter</h2>
+      <p class="dateline">Verschiebung beschlossen November 2025 · Preisstopp Mai 2026</p>
+      <p>Der Start der Regelphase des EU-ETS 2 für Gebäude und Verkehr wurde von 2027 auf frühestens 2028 verschoben. In Deutschland gilt 2027 weiter der nationale Preiskorridor von 55 bis 65 Euro je Tonne CO2. Für Wärmeprojekte mit langen Abschreibungszeiträumen bedeutet das eine Verschiebung, keine Entlastung: ab 2028 greift die Auktionierung, Prognosen reichen bis zu 100 bis 250 Euro je Tonne bis 2030.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.dehst.de/SharedDocs/news/DE/euets2-verschiebung.html">DEHSt</a>
+        <a href="https://www.zfk.de/politik/deutschland/co2-preis-2027-einigung-union-spd-behg-ets2">zfk</a>
+        <a href="https://www.c-ober.de/blog/ets-2-verschiebung-behg-co2-kosten-2027/">c-ober</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>Gebäudemodernisierungsgesetz ersetzt das GEG</h2>
+      <p class="dateline">beschlossen 10. Juli 2026 · erste Regelungen seit 29. Juli 2026 in Kraft</p>
+      <p>Das GModG setzt die EPBD um: Lebenszyklus-Treibhausgasbilanzen, Nullemissionsgebäude für öffentliche Gebäude ab 2028 und übrige ab 2030, Mindesteffizienzstandards für Nichtwohngebäude, eine gestufte Solarpflicht sowie eine Bio-Treppe für neue Gas- und Ölheizungen von mindestens 10 Prozent ab 2029 bis 60 Prozent ab 2040. Für die Wärmeplanung relevant: Die lange Unsicherheit über dieses Gesetz hat kommunale Planungsprozesse verzögert.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.gmodg.bund.de/GEGPortal/DE/Home/startseite/GModG_News/GModG_News-node.html">GModG-Portal</a>
+        <a href="https://www.bundesregierung.de/breg-de/aktuelles/neues-gebaeudemodernisierungsgesetz-2430284">Bundesregierung</a>
+        <a href="https://www.goerg.de/de/aktuelles/veroeffentlichungen/17-07-2026/gebaeudemodernisierungsgesetz-gmodg-schafft-geg-ab-was-sich-aendert-und-was-bleibt">GÖRG</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <h2>Netzkostenzuschuss wird bis 2029 fortgeführt, WindSeeG-Novelle im Kabinett</h2>
+      <p class="dateline">2. September 2026 · Bundeskabinett</p>
+      <p>Das Kabinett hat ein Gesetz zur Fortführung des Zuschusses zu den Übertragungsnetzkosten für die Jahre 2027 bis 2029 beschlossen. Für 2026 waren die Übertragungsnetzentgelte durch den Zuschuss bereits mehr als halbiert worden. Das entlastet Haushalte und Industrie und verbessert indirekt die Wirtschaftlichkeit von Großwärmepumpen in Wärmenetzen, deren Betriebskosten unmittelbar am Strompreis hängen.</p>
+      <p>Am selben Tag passierte die Novelle des Windenergie-auf-See-Gesetzes das Kabinett. Sie verankert Differenzverträge im Ausschreibungsdesign und soll den Ausbau auf 70 Gigawatt bis 2045 tragen.</p>
+      <div class="src">
+        <span class="src-lab">Quellen</span>
+        <a href="https://www.zfk.de/politik/deutschland/energiegesetze-ticker-deutschland-reiche">zfk Gesetze-Ticker</a>
+        <a href="https://www.zfk.de/politik/deutschland/uebertragungsnetzentgelte-halbiert-strompreis">zfk zu den Netzentgelten</a>
+        <a href="https://www.bundesregierung.de/breg-de/aktuelles/niedrigere-netzentgelte-2382396">Bundesregierung</a>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Termine</div>
+    <div class="scroller">
+      <table class="termine">
+        <tbody>
+          <tr><td class="d">08.09.2026</td><td>Gebotstermin der ersten Kapazitätsmarkt-Auktion der Bundesnetzagentur</td></tr>
+          <tr><td class="d">12.10.2026</td><td>Urteilsverkündung OLG Hamm zu den Fernwärme-Preisklauseln von E.ON</td></tr>
+          <tr><td class="d">03.11.2026</td><td>Zuschlagserteilung im Kapazitätsmarkt</td></tr>
+          <tr><td class="d">10.11.2026</td><td>Bekanntmachung der zweiten Kapazitätsauktion</td></tr>
+          <tr><td class="d">offen</td><td>Referentenentwurf zum Wärmenetzpaket und Novelle der AVBFernwärmeV</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="src" style="margin-top:14px">
+      <span class="src-lab">Quelle</span>
+      <a href="https://www.c-ober.de/blog/energie-fristen-september-2026/">Energie-Fristen September 2026</a>
+    </div>
+  </section>
+
+  <div class="note">
+    <strong>Zur Aktualität:</strong> Neu seit gestern sind die Auslegung des Wärmenetzpakets für Versorger (2. September) und die Kabinettsbeschlüsse vom 2. September. Eigene neue Fernwärme-Meldungen mit Nachrichtenwert gab es am 3. und 4. September nicht. Ältere Einträge stehen hier als Stand laufender Verfahren, nicht als Tagesmeldung.
+  </div>
+
+  <footer class="foot">
+    <p>Diese Seite wird werktags gegen 07:00 Uhr aktualisiert. Die URL bleibt gleich, ein Lesezeichen genügt.</p>
+    <p>Alle Angaben stammen aus den jeweils verlinkten Originalquellen. Keine Meldung ohne Quellenlink.</p>
+  </footer>
+
+</div>
+</body>
+</html>
