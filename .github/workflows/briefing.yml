@@ -25,14 +25,31 @@ jobs:
             --max-turns 45
             --allowedTools "WebSearch,WebFetch,Read,Write,Edit,Bash"
           prompt: |
-            Aktualisiere die Datei index.html in diesem Repository zu einem
-            tagesaktuellen Briefing der Energiewirtschaft mit klarem Schwerpunkt
-            Fernwaerme. Schreibe auf Deutsch. Keine Emojis, keine Gedankenstriche
-            als Satzzeichen.
+            Du pflegst das Fernwaerme Briefing in der Datei index.html dieses
+            Repositories. Es ist eine interne Arbeitsunterlage fuer einen
+            Fachbereich Fernwaerme, kein persoenliches Produkt. Sprich niemanden
+            namentlich an, nenne keine Personennamen als Empfaenger, schreibe
+            sachlich in der dritten Person. Deutsch, keine Emojis, keine
+            Gedankenstriche als Satzzeichen.
 
-            SCHRITT 1, Recherche. Suche die Nachrichtenlage der letzten 24 bis 72
-            Stunden, etwa zehn bis fuenfzehn Suchen und Abrufe. Prioritaet in
-            dieser Reihenfolge:
+            GRUNDREGEL, die wichtigste ueberhaupt: Die Seite ist ein fortlaufend
+            gepflegtes Lagebild, kein taeglich neu geschriebener Text. Fasse
+            NIEMALS dieselbe Meldung zweimal neu zusammen. Was gestern schon
+            dastand und sich nicht veraendert hat, bleibt Wort fuer Wort stehen.
+            Aendere an einem Tag ohne Neuigkeiten nur das Ausgabedatum in der
+            Kopfzeile und den Kasten "Neu in dieser Ausgabe", in dem dann offen
+            steht, dass es keine neuen Meldungen gibt.
+
+            SCHRITT 1, bestehenden Stand lesen. Lies index.html vollstaendig.
+            Merke dir, welche Meldungen und welche Zeilen der Lagetafel bereits
+            vorhanden sind, mit ihren Daten und Quellen. Uebernimm Struktur, CSS,
+            Klassennamen und Gestaltung unveraendert. Binde keine externen
+            Schriften, Skripte, Bilder oder Dienste ein, die Seite muss ohne jede
+            externe Verbindung auskommen und darf keine Cookies setzen.
+
+            SCHRITT 2, Recherche. Suche gezielt nach dem, was seit dem letzten
+            Ausgabedatum NEU ist, etwa zehn bis fuenfzehn Suchen und Abrufe.
+            Themen in dieser Reihenfolge:
             a) Fernwaerme und Waermenetze Deutschland: Waermenetzpaket,
                Waermenetzgesetz, AVBFernwaermeV, Waermeplanungsgesetz,
                BEW-Foerderung, Preisaufsicht und Preistransparenz,
@@ -42,33 +59,56 @@ jobs:
             b) Fernwaerme Europa: EU Heating and Cooling Strategy, EPBD, ETS 2,
                Euroheat and Power, Daenemark, Schweden, Niederlande, Oesterreich,
                Polen.
-            c) Allgemeine Energiewirtschaft, sofern relevant: Strom- und Gasmarkt,
-               Netzentgelte, Kapazitaetsmarkt und StromVKG, CO2-Preis, EEG,
-               Gebaeudeenergierecht GModG, Bundesnetzagentur.
+            c) Allgemeine Energiewirtschaft, soweit fuer Waermenetze relevant:
+               Strom- und Gasmarkt, Netzentgelte, Kapazitaetsmarkt und StromVKG,
+               CO2-Preis, EEG, Gebaeudeenergierecht GModG, Bundesnetzagentur.
 
             Gute Quellen: zfk.de, energie-und-management.de, agfw.de, bdew.de,
             vzbv.de, bundeskartellamt.de, bundesnetzagentur.de,
             bundesregierung.de, bundeswirtschaftsministerium.de,
             stadt-und-werk.de, iwr.de, euroheat.org, energy-cities.eu, c-ober.de.
 
-            SCHRITT 2, Seite bauen. Lies die bestehende index.html und uebernimm
-            Struktur, CSS und Gestaltung unveraendert. Tausche nur aus: Datum in
-            der Kopfzeile, Kurzfassung, Kennzahlenleiste, Meldungen und Termine.
-            Abschnitte bleiben: Fernwaerme Deutschland Politik und Regulierung,
-            Fernwaerme Recht und Verfahren, Fernwaerme Markt und Projekte, Europa,
-            Allgemeine Energiewirtschaft, Termine. Je Meldung eine Ueberschrift,
-            eine Datumszeile, ein bis drei Saetze mit konkreten Zahlen, darunter
-            die Quellenlinks. Leere Abschnitte weglassen. Abgelaufene Termine
-            entfernen, neue ergaenzen.
+            SCHRITT 3, Seite pflegen. Die Seite hat Bereiche mit sehr
+            unterschiedlicher Aenderungsfrequenz. Behandle sie unterschiedlich:
 
-            Gab es keine substanziellen neuen Fernwaerme-Meldungen, sage das im
-            Hinweiskasten am Seitenende offen und fuelle nicht mit Altmeldungen
-            auf. Fuehre dann den Stand laufender Verfahren fort.
+            "Neu in dieser Ausgabe": Nur echte Veraenderungen seit der letzten
+            Ausgabe, zwei bis vier kurze Punkte. Gab es nichts, schreibe das
+            offen hinein.
 
-            SCHRITT 3, Pruefung vor dem Commit. Jeder Link muss in deiner
+            "Aktuelle Meldungen": Rollierend, neueste zuerst, hoechstens sechs
+            Eintraege. Neue Meldungen kommen oben dazu mit der Markierung
+            pill pill-neu und dem Wort Neu. Eine bestehende Meldung bekommt die
+            Markierung pill pill-upd mit dem Wort Aktualisiert nur dann, wenn es
+            wirklich einen neuen Sachstand gibt, und dann ergaenzt du den
+            bestehenden Text, statt ihn neu zu schreiben. Eine Meldung, die
+            aelter als etwa zwei Wochen ist und keinen Nachrichtenwert mehr hat,
+            wird geloescht oder ihr Kern wandert als Zeile in die Lagetafel.
+            Setze die Markierung Neu bei der naechsten Ausgabe zurueck auf
+            pill pill-lauf mit dem Wort Einordnung.
+
+            "Laufende Vorhaben und Verfahren": Die Tabelle ist der stabile Teil.
+            Aendere eine Zeile nur, wenn sich der Sachstand oder der naechste
+            Schritt tatsaechlich bewegt hat. Neue Vorhaben kommen als Zeile
+            hinzu, abgeschlossene fallen raus.
+
+            "Markt und Technik": Datenstaende, die sich selten aendern. Nur
+            anfassen, wenn neue Zahlen veroeffentlicht wurden. Dann auch die
+            Kennzahlenleiste oben entsprechend nachziehen.
+
+            "Termine": Abgelaufene Termine entfernen, neue ergaenzen, nach Datum
+            sortiert.
+
+            Zum Schluss das Ausgabedatum in der Kopfzeile auf das heutige Datum
+            setzen.
+
+            SCHRITT 4, Pruefung vor dem Commit. Jeder Link muss in deiner
             Recherche tatsaechlich aufgetaucht sein, erfinde keine URLs. Datums-
             angaben und Zahlen muessen mit den Quellen uebereinstimmen. Keine
-            Meldung ohne Quellenlink.
+            Aussage ohne Quellenlink. Kein Personenname als Empfaenger. Keine
+            externe Ressource im HTML. Pruefe, dass du keine bestehende Meldung
+            ohne sachlichen Grund umformuliert hast.
 
-            SCHRITT 4, Veroeffentlichen. Committe die geaenderte index.html mit
+            SCHRITT 5, Veroeffentlichen. Committe die geaenderte index.html mit
             einer Nachricht der Form "Briefing <Datum>" und pushe nach main.
+            Gab es ueberhaupt keine Aenderung ausser dem Datum, committe
+            trotzdem, damit der Ausgabestand stimmt.
