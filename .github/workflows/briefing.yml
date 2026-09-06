@@ -1,0 +1,74 @@
+name: Fernwaerme Briefing
+
+on:
+  schedule:
+    # 04:00 UTC = 06:00 deutscher Sommerzeit, Montag bis Freitag.
+    # Fuer taeglich: 1-5 durch * ersetzen. Im Winter 5 statt 4 eintragen.
+    - cron: "0 4 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  briefing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: |
+            --max-turns 45
+            --allowedTools "WebSearch,WebFetch,Read,Write,Edit,Bash"
+          prompt: |
+            Aktualisiere die Datei index.html in diesem Repository zu einem
+            tagesaktuellen Briefing der Energiewirtschaft mit klarem Schwerpunkt
+            Fernwaerme. Schreibe auf Deutsch. Keine Emojis, keine Gedankenstriche
+            als Satzzeichen.
+
+            SCHRITT 1, Recherche. Suche die Nachrichtenlage der letzten 24 bis 72
+            Stunden, etwa zehn bis fuenfzehn Suchen und Abrufe. Prioritaet in
+            dieser Reihenfolge:
+            a) Fernwaerme und Waermenetze Deutschland: Waermenetzpaket,
+               Waermenetzgesetz, AVBFernwaermeV, Waermeplanungsgesetz,
+               BEW-Foerderung, Preisaufsicht und Preistransparenz,
+               Bundeskartellamt, Gerichtsverfahren zu Preisaenderungsklauseln,
+               Preisentwicklung, Netzausbau, Grosswaermepumpen, Tiefengeothermie,
+               Abwaerme, KWK, Stadtwerke- und Versorgermeldungen.
+            b) Fernwaerme Europa: EU Heating and Cooling Strategy, EPBD, ETS 2,
+               Euroheat and Power, Daenemark, Schweden, Niederlande, Oesterreich,
+               Polen.
+            c) Allgemeine Energiewirtschaft, sofern relevant: Strom- und Gasmarkt,
+               Netzentgelte, Kapazitaetsmarkt und StromVKG, CO2-Preis, EEG,
+               Gebaeudeenergierecht GModG, Bundesnetzagentur.
+
+            Gute Quellen: zfk.de, energie-und-management.de, agfw.de, bdew.de,
+            vzbv.de, bundeskartellamt.de, bundesnetzagentur.de,
+            bundesregierung.de, bundeswirtschaftsministerium.de,
+            stadt-und-werk.de, iwr.de, euroheat.org, energy-cities.eu, c-ober.de.
+
+            SCHRITT 2, Seite bauen. Lies die bestehende index.html und uebernimm
+            Struktur, CSS und Gestaltung unveraendert. Tausche nur aus: Datum in
+            der Kopfzeile, Kurzfassung, Kennzahlenleiste, Meldungen und Termine.
+            Abschnitte bleiben: Fernwaerme Deutschland Politik und Regulierung,
+            Fernwaerme Recht und Verfahren, Fernwaerme Markt und Projekte, Europa,
+            Allgemeine Energiewirtschaft, Termine. Je Meldung eine Ueberschrift,
+            eine Datumszeile, ein bis drei Saetze mit konkreten Zahlen, darunter
+            die Quellenlinks. Leere Abschnitte weglassen. Abgelaufene Termine
+            entfernen, neue ergaenzen.
+
+            Gab es keine substanziellen neuen Fernwaerme-Meldungen, sage das im
+            Hinweiskasten am Seitenende offen und fuelle nicht mit Altmeldungen
+            auf. Fuehre dann den Stand laufender Verfahren fort.
+
+            SCHRITT 3, Pruefung vor dem Commit. Jeder Link muss in deiner
+            Recherche tatsaechlich aufgetaucht sein, erfinde keine URLs. Datums-
+            angaben und Zahlen muessen mit den Quellen uebereinstimmen. Keine
+            Meldung ohne Quellenlink.
+
+            SCHRITT 4, Veroeffentlichen. Committe die geaenderte index.html mit
+            einer Nachricht der Form "Briefing <Datum>" und pushe nach main.
