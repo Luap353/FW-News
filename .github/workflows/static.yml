@@ -6,6 +6,12 @@ on:
   push:
     branches: ["main"]
 
+  # Runs after the briefing workflow, because pushes made by a workflow
+  # with the default token do not trigger other workflows on their own
+  workflow_run:
+    workflows: ["Fernwaerme Briefing"]
+    types: [completed]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -31,6 +37,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
