@@ -4,7 +4,7 @@ on:
   schedule:
     # Mehrere Anlaeufe mit Absicht. GitHub garantiert die Ausfuehrung geplanter
     # Workflows nicht und laesst sie unter Last aus. Der erste erfolgreiche Lauf
-    # des Tages setzt das Ausgabedatum, die spaeteren brechen dann sofort ab.
+    # des Tages setzt das Ausgabedatum, spaetere brechen dann sofort ab.
     # Zeiten in UTC, im Winter jeweils eine Stunde spaeter eintragen.
     - cron: "17 4 * * 1-5"
     - cron: "23 5 * * 1-5"
@@ -26,7 +26,10 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: anthropics/claude-code-action@v1
+      # Feste Version mit Absicht. Der mitlaufende Zeiger @v1 zeigte zeitweise
+      # auf v1.0.100, die einen Installationsfehler hatte und mit
+      # "native binary not found" abbrach. v1.0.99 laeuft stabil.
+      - uses: anthropics/claude-code-action@v1.0.99
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: |
@@ -40,13 +43,16 @@ jobs:
             sachlich in der dritten Person. Deutsch, keine Emojis, keine
             Gedankenstriche als Satzzeichen.
 
-            SCHRITT 0, Doppellauf-Schutz. Ermittle zuerst das heutige Datum mit
-            dem Befehl date. Lies dann die Kopfzeile von index.html, dort steht
+            SCHRITT 0, Doppellauf-Schutz. Der Ausloeser dieses Laufs ist:
+            ${{ github.event_name }}. Dieser Schritt gilt NUR, wenn dort
+            "schedule" steht. Ermittle in dem Fall mit dem Befehl date das
+            heutige Datum und lies die Kopfzeile von index.html, dort steht
             "Ausgabe <Datum>". Traegt die Seite bereits das heutige Datum, ist
-            die Ausgabe fertig: beende sofort, aendere nichts und committe
-            nichts. Schreibe in dem Fall nur eine Zeile, dass die Ausgabe des
-            Tages bereits vorliegt. Nur wenn das Datum aelter ist, arbeite
-            weiter.
+            die Ausgabe fertig: beende sofort, aendere nichts, committe nichts
+            und schreibe nur eine Zeile, dass die Ausgabe des Tages vorliegt.
+            Bei jedem anderen Ausloeser, insbesondere workflow_dispatch, also
+            einem Handstart, arbeite immer weiter, auch wenn das Datum schon
+            stimmt. Ein Handstart ist eine bewusste Anforderung.
 
             GRUNDREGEL, die wichtigste ueberhaupt: Die Seite ist ein fortlaufend
             gepflegtes Lagebild, kein taeglich neu geschriebener Text. Fasse
