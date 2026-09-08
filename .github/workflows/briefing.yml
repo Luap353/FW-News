@@ -2,16 +2,22 @@ name: Fernwaerme Briefing
 
 on:
   schedule:
-    # 04:17 UTC = 06:17 deutscher Sommerzeit, Montag bis Freitag.
-    # Krumme Minute mit Absicht: zur vollen Stunde staut GitHub die Zeitplaene
-    # weltweit und laesst sie aus. Fuer taeglich 1-5 durch * ersetzen.
-    # Im Winter 5 statt 4 eintragen.
+    # Mehrere Anlaeufe mit Absicht. GitHub garantiert die Ausfuehrung geplanter
+    # Workflows nicht und laesst sie unter Last aus. Der erste erfolgreiche Lauf
+    # des Tages setzt das Ausgabedatum, die spaeteren brechen dann sofort ab.
+    # Zeiten in UTC, im Winter jeweils eine Stunde spaeter eintragen.
     - cron: "17 4 * * 1-5"
+    - cron: "23 5 * * 1-5"
+    - cron: "31 6 * * 1-5"
   workflow_dispatch:
 
 permissions:
   contents: write
   id-token: write
+
+concurrency:
+  group: briefing
+  cancel-in-progress: false
 
 jobs:
   briefing:
@@ -33,6 +39,14 @@ jobs:
             namentlich an, nenne keine Personennamen als Empfaenger, schreibe
             sachlich in der dritten Person. Deutsch, keine Emojis, keine
             Gedankenstriche als Satzzeichen.
+
+            SCHRITT 0, Doppellauf-Schutz. Ermittle zuerst das heutige Datum mit
+            dem Befehl date. Lies dann die Kopfzeile von index.html, dort steht
+            "Ausgabe <Datum>". Traegt die Seite bereits das heutige Datum, ist
+            die Ausgabe fertig: beende sofort, aendere nichts und committe
+            nichts. Schreibe in dem Fall nur eine Zeile, dass die Ausgabe des
+            Tages bereits vorliegt. Nur wenn das Datum aelter ist, arbeite
+            weiter.
 
             GRUNDREGEL, die wichtigste ueberhaupt: Die Seite ist ein fortlaufend
             gepflegtes Lagebild, kein taeglich neu geschriebener Text. Fasse
@@ -112,5 +126,3 @@ jobs:
 
             SCHRITT 5, Veroeffentlichen. Committe die geaenderte index.html mit
             einer Nachricht der Form "Briefing <Datum>" und pushe nach main.
-            Gab es ueberhaupt keine Aenderung ausser dem Datum, committe
-            trotzdem, damit der Ausgabestand stimmt.
