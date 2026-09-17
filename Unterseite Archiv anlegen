@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Frühere Meldungen mit Quellenlink, nach Datum sortiert.">
+<title>Archiv · Fernwärme Briefing</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html">Fernwärme<span> Briefing</span></a>
+    <a class="tab" href="index.html">Überblick</a>
+    <a class="tab" href="regulatorik.html">Regulatorik</a>
+    <a class="tab" href="versorger.html">Versorger-Watch</a>
+    <a class="tab" href="archiv.html" aria-current="page">Archiv</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="kicker">Fachbereich Fernwärme · Unterseite</div>
+    <h1>Archiv</h1>
+    <p class="subtitle">Frühere Meldungen mit Quellenlink, nach Datum sortiert. Bleibt abrufbar, auch wenn ein Eintrag auf der Startseite nicht mehr steht.</p>
+    <div class="mast-meta">
+      <span>Einträge <b>10</b></span>
+      <span>Von Hand gepflegt</span>
+      <span>Interne Verwendung</span>
+    </div>
+  </header>
+
+  <div class="note">
+    <strong>Bewusst nicht automatisch:</strong> Diese Seite wird nicht bei jedem Lauf
+    fortgeschrieben. Sie wächst, wenn ein Eintrag die Startseite verlässt, und wird dann von Hand
+    oder in einem eigenen Lauf ergänzt. So bleibt sie auch bei hunderten Einträgen handhabbar.
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <h2 class="sec-title">Alle Einträge</h2>
+      <div class="sec-note">neueste zuerst</div>
+    </div>
+    <div class="sec-body">
+      <div class="scroller">
+      <table class="termine">
+        <tbody>
+          <tr><td class="d">17.09.2026</td><td>KfW legt zwei Kreditprogramme für Wärmenetze und Energieinfrastruktur auf<div class="src" style="margin-top:6px"><a href="https://www.kfw.de/%C3%9Cber-die-KfW/Newsroom/Aktuelles/Pressemitteilungen-Details_903360.html">KfW, 3.8.2026</a> <a href="https://www.c-ober.de/blog/deutschlandfonds-kfw-548-549-jetzt-beantragbar/">c-ober, Einordnung</a></div></td></tr>
+          <tr><td class="d">16.09.2026</td><td>EuGH: KWKG ist keine EU-Beihilfe, KWKG-Novelle nun ohne rechtliches Hindernis<div class="src" style="margin-top:6px"><a href="https://www.agfw.de/energiewirtschaft-recht-politik/recht/aktuelles-aus-dem-bereich/newsdetail/nach-eugh-urteil-heute-agfw-fordert-zuegige-novellierung-des-kwkg/">AGFW, 16.9.2026</a></div></td></tr>
+          <tr><td class="d">14.09.2026</td><td>Stadtwerke Weimar erhalten Aufsuchungserlaubnis für Tiefengeothermie<div class="src" style="margin-top:6px"><a href="https://www.stadt-und-werk.de/k21-meldungen/aufsuchungserlaubnis-fuer-tiefengeothermie-erhalten/">stadt+werk, 14.9.2026</a></div></td></tr>
+          <tr><td class="d">10.09.2026</td><td>Solare Fernwärme: Rekord-Zubau 2026, 75 Netze in Betrieb<div class="src" style="margin-top:6px"><a href="https://www.solarserver.de/2026/09/10/solarthermie-in-der-fernwaerme-positive-marktentwicklung-setzt-sich-fort">Solarserver, 10.9.2026</a></div></td></tr>
+          <tr><td class="d">09.09.2026</td><td>Erste Kapazitätsauktion deutlich überzeichnet, Bundesnetzagentur prüft Gebote<div class="src" style="margin-top:6px"><a href="https://ms-aktuell.de/welt/backup-kraftwerke-ausschreibung-09-09-2026/">BNetzA-Meldung, 9.9.2026</a> <a href="https://www.c-ober.de/blog/kapazitaetsmarkt-erste-auktion-2026/">Auktionsdetails</a></div></td></tr>
+          <tr><td class="d">24.08.2026</td><td>Sammelklage gegen E.ON: Anmeldefrist abgelaufen, Urteil am 12. Oktober<div class="src" style="margin-top:6px"><a href="https://www.drweb.de/fernwaerme-eon-preisklausel-olg-hamm/">Verfahrensbericht</a> <a href="https://www.marler-zeitung.de/marl/fernwaerme-marl-olg-hamm-kritisiert-eon-preisklauseln-heizkosten-w1239484-9001367343">Marler Zeitung</a> <a href="https://www.vzbv.de/meldungen/fernwaermemarkt-braucht-mehr-verbraucherschutz-bundeskartellamt-erkenntnisse-bestaetigen">vzbv</a> <a href="https://www.wetterauer-zeitung.de/wirtschaft/olg-hamm-sieht-verstoesse-bei-fernwaerme-preisklauseln-von-eon-zr-94458080.html">OLG Hamm im Detail</a></div></td></tr>
+          <tr><td class="d">02.06.2026</td><td>Dekarbonisierung stagniert, Grünanteil sinkt sogar<div class="src" style="margin-top:6px"><a href="https://www.zfk.de/energie/waerme/fernwaerme-waermewende-bdew-fortschrittsmonitor-energiewende-2026">Fortschrittsmonitor 2026</a></div></td></tr>
+          <tr><td class="d">06.03.2026</td><td>Preise leicht rückläufig, Spannweite zwischen den Netzen bleibt extrem<div class="src" style="margin-top:6px"><a href="https://www.zfk.de/energie/waermewende/fernwaermepreise-2026-klarer-trend-erkennbar">Preisauswertung 2026</a></div></td></tr>
+          <tr><td class="d">ohne Datum</td><td>Erzeugungsseite: Großwärmepumpen, Tiefengeothermie, neue Rolle der KWK<div class="src" style="margin-top:6px"><a href="https://www.zfk.de/energie/waermewende/technologien-fuer-gruene-fernwaerme-grosswaermepumpen">Großwärmepumpen</a> <a href="https://www.zfk.de/energie/waerme/kwk-fernwaerme-waermepumpe-strommarkt-bet-dena-eworld">KWK im Wandel</a> <a href="https://www.iwr.de/news/mega-waermepumpen-fuer-industrie-und-fernwaerme-neue-projekte-in-ganz-europa-zeigen-potenzial-news39556">Projekte Europa</a> <a href="https://www.zfk.de/politik/deutschland/uebertragungsnetzentgelte-halbiert-strompreis">Netzentgelte</a> <a href="https://www.iwr.de/news/bund-zahlt-milliarden-fuer-niedrigere-strom-netzentgelte-teure-buerger-akzeptanz-bei-erdkabeln-aus-2015-wirkt-bis-heute-nach-news40008">Kabinettsbeschluss Zuschuss</a></div></td></tr>
+          <tr><td class="d">ohne Datum</td><td>Europa: Strategie für Wärme und Kälte als eigener Politikstrang<div class="src" style="margin-top:6px"><a href="https://www.euroheat.org/news/eu-heating-and-cooling-decarbonisation-strategy-announced-for-secure-and-affordable-energy-1">EU-Strategie</a> <a href="https://www.euroheat.org/news/new-european-commission-study-examines-district-heating-and-cooling-energy-sector-investment-1">Kommissionsstudie</a> <a href="https://energy-cities.eu/presse/europes-heating-and-cooling-dilemma-can-district-energy-deliver/">Energy Cities</a></div></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Interne Arbeitsunterlage. Keine Rechtsberatung, keine Gewähr für Vollständigkeit.</p>
+    <p>Alle Angaben stammen aus den verlinkten Originalquellen.</p>
+    <p>Diese Seite setzt keine Cookies, bindet keine externen Dienste ein und erhebt keine Nutzungsdaten.</p>
+  </footer>
+</div>
+
+</body>
+</html>
